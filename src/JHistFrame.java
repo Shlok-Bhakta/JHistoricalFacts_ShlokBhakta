@@ -5,8 +5,8 @@ import java.awt.event.*;
 public class JHistFrame extends JFrame implements ActionListener {
     int factnum = 0;
     FlowLayout layout = new FlowLayout();
-    String[] factArray = {"Hitler was rejected from art school", "Japan bombed Pearl Harbor", "100 Imposters claimed to be Marie Antoinette's dead son", "The Titanic was sunk by an iceburg"};
-    JLabel facts = new JLabel("1976 marked the end of 1975");
+    String[] factArray = {"1976 marked the end of 1975", "Hitler was rejected from art school", "Japan bombed Pearl Harbor", "100 Imposters claimed to be Marie Antoinette's dead son", "The Titanic was sunk by an iceburg"};
+    JLabel facts = new JLabel(factArray[0]);
     JButton button = new JButton("Next Fact");
 
     public JHistFrame() {
@@ -32,9 +32,13 @@ public class JHistFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        facts.setText(factArray[factnum]);
-        //TODO make logic work
-        factnum = ((factnum < factArray.length) ? factnum++ : null);
+        
+        
+        if(factnum < factArray.length-1){
+            factnum++;
+            facts.setText(factArray[factnum]);
+        }
+        
     }
 
 }
